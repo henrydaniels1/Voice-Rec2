@@ -1,10 +1,7 @@
 'use client';
 
-import  { useState, useEffect, useRef } from 'react';
-import { Mic, MicOff, Trash2, Copy } from "lucide-react";
-
-// npm install lucide-react
-
+import { useState, useEffect, useRef } from 'react';
+import { Mic, MicOff, Trash2, Copy } from 'lucide-react';
 
 const SpeechToText = () => {
   const [isListening, setIsListening] = useState(false);
@@ -55,14 +52,6 @@ const SpeechToText = () => {
       }
     };
   }, []);
-
-  const toggleListening = () => {
-    if (isListening) {
-      stopListening();
-    } else {
-      startListening();
-    }
-  };
 
   const startListening = () => {
     setIsListening(true);
@@ -119,7 +108,10 @@ const SpeechToText = () => {
         />
         <div className="flex space-x-2">
           <button
-            onClick={toggleListening}
+            onMouseDown={startListening} // Start listening on mouse down
+            onMouseUp={stopListening}    // Stop listening on mouse up
+            onTouchStart={startListening} // For mobile devices: start on touch
+            onTouchEnd={stopListening}    // For mobile devices: stop on touch end
             className={`flex-1 p-2 text-white rounded flex items-center justify-center ${isListening ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'}`}
           >
             {isListening ? (
@@ -130,7 +122,7 @@ const SpeechToText = () => {
             ) : (
               <>
                 <Mic className="mr-2 h-4 w-4" />
-                <span>Start</span>
+                <span>Hold to Speak</span>
               </>
             )}
           </button>
@@ -149,7 +141,7 @@ const SpeechToText = () => {
             <span className="sr-only">Copy text</span>
           </button>
         </div>
-        {copySuccess && <p className="text-green-500 text-center mt-2">{copySuccess}</p>}
+        {copySuccess && <p className="text-green-500 text-center mt-4">{copySuccess}</p>}
       </div>
     </div>
   );
