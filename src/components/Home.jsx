@@ -1,4 +1,4 @@
-import SpeechToText from './Speech2'
+import SpeechToText from './Speech1'
 import ExampleComponent from './Scroll'
 export default function Home() {
   return (
