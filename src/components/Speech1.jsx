@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Mic, MicOff, Trash2, Copy, Volume2 } from 'lucide-react'
 
+
 const SpeechToText = () => {
   const [isListening, setIsListening] = useState(false)
   const [currentText, setCurrentText] = useState('')
@@ -136,7 +137,7 @@ const SpeechToText = () => {
 
   return (
     <div className='flex flex-col h-[100dvh] items-center justify-center min-h-screen bg-gray-900'>
-      <div className='w-full max-w-md p-8 bg-white rounded-lg shadow-md'>
+      <div className='w-full max-w-md p-8 bg-white reveal1 rounded-lg shadow-md'>
         <h1 className='text-2xl font-bold mb-4 text-center'>Speech to Text</h1>
         <textarea
           value={accumulatedText + ' ' + currentText}

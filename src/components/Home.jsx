@@ -4,10 +4,10 @@ export default function Home() {
   return (
       <div>
           <ExampleComponent />
-          <div className="reveal2">
+        
               <SpeechToText/>
           </div>
       
-    </div>
+  
   )
 }
